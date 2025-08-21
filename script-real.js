@@ -1212,36 +1212,6 @@ function applyFilters() {
         
         // Restaurar resultados originais
         filteredResults = [...originalResults];
-    } else if (filteredResults.length < originalResults.length * 0.3) {
-        // AVISO: Filtros muito restritivos (menos de 30% dos resultados)
-        console.warn(`⚠️ Filtros muito restritivos! Apenas ${((filteredResults.length/originalResults.length)*100).toFixed(1)}% dos resultados originais passaram.`);
-        
-        // Mostrar alerta para o usuário
-        const shouldShowAlert = confirm(
-            `Os filtros aplicados são muito restritivos e eliminaram ${originalResults.length - filteredResults.length} de ${originalResults.length} resultados (${((filteredResults.length/originalResults.length)*100).toFixed(1)}% restaram).\n\n` +
-            'Deseja relaxar os filtros para ver mais resultados?\n\n' +
-            'Clique "OK" para manter os filtros atuais ou "Cancelar" para relaxar automaticamente.'
-        );
-        
-        if (!shouldShowAlert) {
-            // Relaxar filtros automaticamente
-            console.log('🔄 Relaxando filtros automaticamente...');
-            
-            // Manter apenas filtros essenciais
-            if (filterSC.checked || filterNacional.checked) {
-                // Manter filtro de localização
-                filteredResults = originalResults.filter(result => {
-                    const text = `${result.titulo} ${result.trecho}`.toLowerCase();
-                    return (filterSC.checked && mentionsSC(text)) || 
-                           (filterNacional.checked && !mentionsSC(text));
-                });
-            } else {
-                // Restaurar todos os resultados
-                filteredResults = [...originalResults];
-            }
-            
-            console.log(`✅ Filtros relaxados: ${filteredResults.length} resultados restaurados`);
-        }
     }
     
     // Atualizar resultados filtrados
