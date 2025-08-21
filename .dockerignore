@@ -1,0 +1,44 @@
+# Git
+.git
+.gitignore
+
+# Dependências
+node_modules
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Documentação
+README.md
+*.md
+
+# Configurações
+.vscode
+.idea
+*.swp
+*.swo
+
+# Arquivos temporários
+tmp
+temp
+*.tmp
+
+# Logs
+logs
+*.log
+
+# Cache
+.cache
+.npm
+
+# Testes
+test
+tests
+__tests__
+*.test.js
+*.spec.js
+
+# Build
+dist
+build
+coverage
