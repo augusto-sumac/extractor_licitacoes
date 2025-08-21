@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscador de Editais Culturais</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎨 Buscador de Editais Culturais</h1>
+            <p class="subtitle">Encontre oportunidades em arte, escultura e cultura em Santa Catarina e Brasil</p>
+            <div class="status-notice">
+                <strong>✅ Sistema Funcional:</strong> Busca LIVRE em 30+ fontes de editais culturais
+            </div>
+        </header>
+
+        <section class="search-section">
+            <div class="search-controls">
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Digite qualquer termo para buscar - o sistema é livre!" />
+                    <button id="searchBtn" class="btn-primary">🔍 Buscar</button>
+                </div>
+                
+                <div class="filters">
+                    <div class="filter-group">
+                        <label>
+                            <input type="checkbox" id="filterSC" checked>
+                            Incluir resultados de Santa Catarina
+                        </label>
+                        <label>
+                            <input type="checkbox" id="filterNacional" checked>
+                            Incluir editais nacionais
+                        </label>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label>Tipo de oportunidade:</label>
+                        <select id="filterType">
+                            <option value="">Todos</option>
+                            <option value="edital">Editais</option>
+                            <option value="premio">Prêmios</option>
+                            <option value="bolsa">Bolsas</option>
+                            <option value="residencia">Residências</option>
+                            <option value="exposicao">Exposições</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label>Período:</label>
+                        <select id="datePreset">
+                            <option value="">Personalizado</option>
+                            <option value="today">Hoje</option>
+                            <option value="week">Últimos 7 dias</option>
+                            <option value="month" selected>Últimos 30 dias</option>
+                            <option value="quarter">Últimos 3 meses</option>
+                            <option value="year">Último ano</option>
+                            <option value="2000">Ano 2000</option>
+                            <option value="2001">Ano 2001</option>
+                            <option value="2002">Ano 2002</option>
+                            <option value="2003">Ano 2003</option>
+                            <option value="2004">Ano 2004</option>
+                            <option value="2005">Ano 2005</option>
+                            <option value="2006">Ano 2006</option>
+                            <option value="2007">Ano 2007</option>
+                            <option value="2008">Ano 2008</option>
+                            <option value="2009">Ano 2009</option>
+                            <option value="2010">Ano 2010</option>
+                            <option value="2011">Ano 2011</option>
+                            <option value="2012">Ano 2012</option>
+                            <option value="2013">Ano 2013</option>
+                            <option value="2014">Ano 2014</option>
+                            <option value="2015">Ano 2015</option>
+                            <option value="2016">Ano 2016</option>
+                            <option value="2017">Ano 2017</option>
+                            <option value="2018">Ano 2018</option>
+                            <option value="2019">Ano 2019</option>
+                            <option value="2020">Ano 2020</option>
+                            <option value="2021">Ano 2021</option>
+                            <option value="2022">Ano 2022</option>
+                            <option value="2023">Ano 2023</option>
+                            <option value="2024">Ano 2024</option>
+                            <option value="historic">Histórico (antes de 2020)</option>
+                            <option value="recent">Recente (últimos 5 anos)</option>
+                            <option value="all">Todas as datas</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label>Data de publicação:</label>
+                        <input type="date" id="dateFrom" placeholder="De" min="1900-01-01" max="2030-12-31">
+                        <span>até</span>
+                        <input type="date" id="dateTo" placeholder="Até" min="1900-01-01" max="2030-12-31">
+                    </div>
+                </div>
+            </div>
+
+            <div class="sources-section">
+                <div class="sources-header">
+                    <h3>Fontes de busca:</h3>
+                    <div class="sources-controls">
+                        <button id="selectAllSources" class="btn-small">Selecionar todas</button>
+                        <button id="deselectAllSources" class="btn-small">Desmarcar todas</button>
+                    </div>
+                </div>
+                <div id="sourcesList" class="sources-grid">
+                    <!-- Fontes serão carregadas dinamicamente -->
+                </div>
+            </div>
+        </section>
+
+        <section class="results-section">
+            <div class="results-header">
+                <h2>Resultados</h2>
+                <div class="results-actions">
+                    <span id="resultsCount">0 resultados encontrados</span>
+                    <button id="exportCSV" class="btn-secondary" disabled>📥 Exportar CSV</button>
+                    <button id="exportJSON" class="btn-secondary" disabled>📥 Exportar JSON</button>
+                </div>
+            </div>
+            
+            <div id="loadingIndicator" class="loading" style="display: none;">
+                <div class="spinner"></div>
+                <p id="loadingText">Iniciando busca...</p>
+                <div class="progress-bar">
+                    <div id="progressFill" class="progress-fill"></div>
+                </div>
+                <p id="progressText" class="progress-text">0 de 0 fontes pesquisadas</p>
+            </div>
+            
+            <div id="resultsContainer" class="results-grid">
+                <!-- Resultados serão inseridos aqui -->
+            </div>
+            
+            <div id="pagination" class="pagination">
+                <!-- Controles de paginação serão inseridos aqui -->
+            </div>
+        </section>
+    </div>
+
+    <script src="script-real.js"></script>
+</body>
+</html>
