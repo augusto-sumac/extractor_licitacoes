@@ -1,6 +1,5 @@
 const express = require('express');
 const cors = require('cors');
-const puppeteer = require('puppeteer');
 const cheerio = require('cheerio');
 const axios = require('axios');
 const path = require('path');
