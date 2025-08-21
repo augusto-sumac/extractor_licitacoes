@@ -1,0 +1,29 @@
+# Arquivos não necessários para o Railway
+.git/
+.gitignore
+README.md
+.railwayignore
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Arquivos de desenvolvimento
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Arquivos temporários
+tmp/
+temp/
+*.tmp
+
+# Logs
+logs/
+*.log
+
+# Cache
+.cache/
+.npm/
