@@ -1,3 +1,15 @@
+// Polyfill para File class (compatibilidade com Node.js)
+if (typeof global !== 'undefined' && !global.File) {
+    global.File = class File {
+        constructor(bits, name, options = {}) {
+            this.name = name;
+            this.size = bits.length;
+            this.type = options.type || '';
+            this.lastModified = options.lastModified || Date.now();
+        }
+    };
+}
+
 const express = require('express');
 const cors = require('cors');
 const cheerio = require('cheerio');

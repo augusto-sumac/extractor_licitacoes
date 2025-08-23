@@ -9,6 +9,6 @@
     "healthcheckTimeout": 300
   },
   "variables": {
-    "NODE_VERSION": "18.20.5"
+    "NODE_VERSION": "20.11.0"
   }
 }
