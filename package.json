@@ -10,13 +10,13 @@
     "cors": "^2.8.5"
   },
   "scripts": {
-    "start": "node server-simple.js",
-    "dev": "nodemon server-simple.js"
+    "start": "node start.js",
+    "dev": "nodemon start.js"
   },
   "devDependencies": {
     "nodemon": "^3.0.1"
   },
   "engines": {
-    "node": ">=18.17.0"
+    "node": ">=20.0.0"
   }
 }
